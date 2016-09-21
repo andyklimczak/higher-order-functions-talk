@@ -1,50 +1,254 @@
+
+
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>reveal.js</title>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Pratical Higher Order Functions</h2>
+          <h5>Making Iteration Great Again</h5>
+        </section>
+        <section>
+          <section>
+            Given an array of Puppies, do any of them have brown hair?
+            <div class="fragment">
+              <pre><code class="hljs">
+                function anyBrownHair(puppiesArray) {
+                  for(i = 0; i &lt; puppiesArray.length; i++) {
+                    if(puppiesArray[i].hairColor === 'BROWN') {
+                      return true;
+                    }
+                  }
+                  return false;
+                }
+              </code></pre>
+            </div>
+            <div class="fragment">
+              <pre><code class="hljs">
+                function anyBrownHair(puppiesArray) {
+                  for(var puppy: puppiesArray) {
+                    if(puppy.hairColor === 'BROWN') {
+                      return true;
+                    }
+                  }
+                  return false;
+                }
+              </code></pre>
+            </div>
+            <div class="fragment">
+              <pre><code class="hljs">
+                function anyBrownHair(puppiesArray) {
+                  puppiesArray.forEach((puppy) => {
+                    if(puppy.hairColor === 'BROWN') {
+                      return true;
+                    }
+                  });
+                  return false;
+                }
+              </code></pre>
+            </div>
+          </section>
+        </section>
+        <section>
+          Any/Some
+          <br>
+          Array => Boolean
+          <pre><code class="hljs" data-noescape>
+            function anyBrownHair(puppiesArray) {
+              return puppiesArray.<mark style="font-size: 1.2em;">some</mark>((puppy) => {
+                return puppy.hairColor === 'BROWN';
+              });
+            }
+          </code></pre>
+          <pre><code class="hljava" data-noescape>
+            public boolean anyBrownHair(People[] puppiesArray) {
+              return puppiesArray.stream()
+                .<mark style="font-size: 1.2em;">anyMatch</mark>(puppy -> puppy.getHairColor().equals("BROWN"));
+            }
+          </code></pre>
+        </section>
+        <section>
+          <div>
+            Given an array of Puppies, do they all have brown hair?
+          </div>
+          <div class="fragment">
+            <pre><code>
+              function allBrownHair(puppiesArray) {
+                for(var puppy : puppiesArray) {
+                  if(puppy.hairColor !== 'BROWN') {
+                    return false;
+                  }
+                }
+                return true;
+              }
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          Every/All
+          <br>
+          Array => Boolean
+          <pre><code class="hljs" data-noescape>
+            function anyBrownHair(puppiesArray) {
+              return puppiesArray.<mark style="font-size: 1.2em;">every</mark>((puppies) => {
+                return puppy.hairColor === 'BROWN';
+              });
+            }
+          </code></pre>
+          <br>
+          <pre><code class="hljava" data-noescape>
+            public boolean anyBrownHair(People[] puppyArray) {
+              return puppiesArray.stream()
+                .<mark style="font-size: 1.2em;">allMatch</mark>(puppy -> puppy.getHairColor().equals("BROWN"));
+            }
+          </code></pre>
+        </section>
+        <section>
+          Concatenate an array of words to build a message
+          <div class="fragment">
+            <pre><code class="hljs">
+              // createMessage(['In', 'From', 'The', 'Sea']) => 'InFromTheSea'
 
-		<title>reveal.js</title>
+              function createMessage(words) {
+                var message = "";
+                for(var word : words) {
+                  message += word;
+                }
+                return message;
+              }
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          Reduce/Fold
+          <br>
+          Array => Single value
+          <pre><code class="hljs" data-noescape>
+            // createMessage(['In', 'From', 'The', 'Sea']) => 'InFromTheSea'
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+            function createMessage(words) {
+              return words.<mark style="font-size: 1.2em;">reduce</mark>((message, word) => {
+                return message + word;
+              }, '');
+            }
+          </code></pre>
+          <br>
+          <pre><code class="hljava" data-noescape>
+            public String createMessage(String[] words) {
+              return words.stream().<mark style="font-size: 1.2em;">reduce</mark>(
+                "",
+                (message, word) -> message + word);
+            }
+          </code></pre>
+        </section>
+        <section>
+          Given int array, return array where each number is multiplied by 100
+          <div class="fragment">
+            <pre><code class="hljs">
+                // times100([1,2,3]) => [100, 200, 300]
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+                function times100(intArray) {
+                  var times = [];
+                  intArray.forEach((i) => {
+                    times.push(i * 100);
+                  });
+                  return times;
+                }
+              </code></pre>
+          </div>
+        </section>
+        <section>
+          Map
+          <br>
+          Array => Array
+          <pre><code class="hljs" data-noescape>
+            // times100([1,2,3]) => [100, 200, 300]
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+            function times100(intArray) {
+              return intArray.<mark style="font-size: 1.2em;">map</mark>((i) => {
+                return i * 100;
+              }
+            }
+          </code></pre>
+          <br>
+          <pre><code class="hljava" data-noescape>
+          public int[] times100(int[] intArray) {
+            return intArray.stream().<mark style="font-size: 1.2em;">map</mark>(i -> i * 100);
+          }
+          </code></pre>
+        </section>
+        <section>
+          Return an array of brown hair puppies
+          <div class="fragment">
+            <pre><code>
+              function findBrownHair(puppiesArray) {
+                var brownHairPuppies = [];
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+                for(var puppy : puppiesArray) {
+                  if(puppy.hairColor === 'BROWN') {
+                    brownHairPuppies.push(puppy);
+                  }
+                }
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+                return brownHairPuppies;
+              }
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          Filter
+          <br>
+          Array => Array
+          <pre><code class="hljs" data-noescape>
+          function findBrownHair(puppiesArray) {
+            return puppiesArray.<mark style="font-size: 1.2em;">filter</mark>((puppy) => {
+              return puppy.hairColor === 'BROWN';
+            });
+          }
+        </code></pre>
+          <br>
+          <pre><code class="hljs" data-noescape>
+          public Puppy[] findBrownHair(Puppy[] puppiesArray) {
+            return puppies.stream()
+              .<mark style="font-size: 1.2em;">filter</mark>(puppy -> puppy.getHairColor().equals("BROWN"));
+          }
+        </code></pre>
+        </section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+                Reveal.initialize({
+                  history: true,
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+                  // More info https://github.com/hakimel/reveal.js#dependencies
+                  dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                  ]
+                });
+    </script>
+  </body>
 </html>
