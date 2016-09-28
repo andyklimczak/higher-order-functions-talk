@@ -78,7 +78,7 @@
               });
             }
           </code></pre>
-          <pre><code class="hljava" data-noescape>
+          <pre><code class="hljs" data-noescape>
             public boolean anyBrownHair(People[] puppiesArray) {
               return Arrays.stream(puppiesArray)
                 .<mark style="font-size: 1.2em;">anyMatch</mark>(puppy -> puppy.getHairColor().equals("BROWN"));
@@ -114,7 +114,7 @@
             }
           </code></pre>
           <br>
-          <pre><code class="hljava" data-noescape>
+          <pre><code class="hljs" data-noescape>
             public boolean anyBrownHair(People[] puppyArray) {
               return Arrays.stream(puppiesArray)
                 .<mark style="font-size: 1.2em;">allMatch</mark>(puppy -> puppy.getHairColor().equals("BROWN"));
@@ -151,7 +151,7 @@
             }
           </code></pre>
           <br>
-          <pre><code class="hljava" data-noescape>
+          <pre><code class="hljs" data-noescape>
             public String createMessage(String[] words) {
               return Arrays.stream(words).<mark style="font-size: 1.2em;">reduce</mark>(
                 "",
@@ -189,7 +189,7 @@
             }
           </code></pre>
           <br>
-          <pre><code class="hljava" data-noescape>
+          <pre><code class="hljs" data-noescape>
           public int[] times100(int[] intArray) {
             return Arrays.stream(intArray).<mark style="font-size: 1.2em;">map</mark>(i -> i * 100);
           }
