@@ -12,4 +12,4 @@ Filter
 
 Reduce
 
-[javascript examples](https://jsfiddle.net/andyklimczak/xz5mLrLn/5/)
+[javascript examples](https://jsfiddle.net/andyklimczak/xz5mLrLn/)
