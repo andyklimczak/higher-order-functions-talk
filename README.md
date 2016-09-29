@@ -13,3 +13,5 @@ Filter
 Reduce
 
 [javascript examples](https://jsfiddle.net/andyklimczak/xz5mLrLn/)
+
+See JavaExamples.java for java
