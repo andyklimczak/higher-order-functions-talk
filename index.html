@@ -1,11 +1,9 @@
-
-
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>reveal.js</title>
+    <title>Higher Order Functions</title>
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/night.css">
     <!-- Theme used for syntax highlighting of code -->
@@ -30,7 +28,7 @@
           <section>
             Given an array of Puppies, do any of them have brown hair?
             <div class="fragment">
-              <pre><code class="hljs">
+              <pre><code class="hljs" data-noescape>
                 function anyBrownHair(puppiesArray) {
                   for(i = 0; i &lt; puppiesArray.length; i++) {
                     if(puppiesArray[i].hairColor === 'BROWN') {
@@ -113,7 +111,6 @@
               });
             }
           </code></pre>
-          <br>
           <pre><code class="hljs" data-noescape>
             public static boolean anyBrownHair(Puppy[] puppyArray) {
               return Arrays.stream(puppiesArray)
@@ -150,7 +147,6 @@
               }, '');
             }
           </code></pre>
-          <br>
           <pre><code class="hljs" data-noescape>
             public static String createMessage(String[] words) {
               return Arrays.stream(words).<mark style="font-size: 1.2em;">reduce</mark>(
@@ -188,7 +184,6 @@
               }
             }
           </code></pre>
-          <br>
           <pre><code class="hljs" data-noescape>
           public static int[] times100(int[] intArray) {
             return Arrays.stream(intArray).<mark style="font-size: 1.2em;">map</mark>(i -> i * 100).toArray();
@@ -196,9 +191,25 @@
           </code></pre>
         </section>
         <section>
-          Return an array of brown hair puppies
+          Total number of bones buried for all dogs
           <div class="fragment">
-            <pre><code>
+          <pre><code class="hljs" data-noescape>
+              // Start with array of puppies => array of ints => int
+
+              function totalBonesBuried(puppiesArray) {
+                return puppiesArray.map((puppy) => {
+                  return puppy.bonesBuried;
+                }).reduce((total, bonesBuried) => {
+                  return total + bonesBuried;
+                });
+              }
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          Return an array of only brown hair puppies
+          <div class="fragment">
+            <pre><code class="hljs" data-noescape>
               function findBrownHair(puppiesArray) {
                 var brownHairPuppies = [];
 
@@ -224,13 +235,29 @@
             });
           }
         </code></pre>
-          <br>
           <pre><code class="hljs" data-noescape>
           public static Puppy[] findBrownHair(Puppy[] puppiesArray) {
             return Arrays.stream(puppiesArray)
-              .<mark style="font-size: 1.2em;">filter</mark>(puppy -> puppy.getHairColor().equals("BROWN")).toArray(Puppy[]::new);
+              .<mark style="font-size: 1.2em;">filter</mark>(puppy -> puppy.getHairColor().equals("BROWN"))
+              .toArray(Puppy[]::new);
           }
         </code></pre>
+        </section>
+        <section>
+          Sum number of bones buried for all brown hair dogs
+          <br>
+          <div class="fragment">
+            <pre><code class="hljs" data-noescape>
+            function bonesBuriedForBrownHair(puppiesArray) {
+              return puppiesArray.filter((puppy) => {
+                return puppy.hairColor === 'BROWN';
+              }).map((brownHairPuppy) => {
+                return brownHairPuppy.bonesBuried;
+              }).reduce((total, bonesBuried) => {
+                return total + bonesBuried;
+              });
+            }
+          </div>
         </section>
       </div>
     </div>
