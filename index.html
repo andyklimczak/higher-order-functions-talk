@@ -54,7 +54,7 @@
             <div class="fragment">
               <pre><code class="hljs">
                 function anyBrownHair(puppiesArray) {
-                  puppiesArray.forEach((puppy) => {
+                  puppiesArray.forEach(puppy => {
                     if(puppy.hairColor === 'BROWN') {
                       return true;
                     }
@@ -71,7 +71,7 @@
           Array => Boolean
           <pre><code class="hljs" data-noescape>
             function anyBrownHair(puppiesArray) {
-              return puppiesArray.<mark style="font-size: 1.2em;">some</mark>((puppy) => {
+              return puppiesArray.<mark style="font-size: 1.2em;">some</mark>(puppy => {
                 return puppy.hairColor === 'BROWN';
               });
             }
@@ -106,7 +106,7 @@
           Array => Boolean
           <pre><code class="hljs" data-noescape>
             function anyBrownHair(puppiesArray) {
-              return puppiesArray.<mark style="font-size: 1.2em;">every</mark>((puppy) => {
+              return puppiesArray.<mark style="font-size: 1.2em;">every</mark>(puppy => {
                 return puppy.hairColor === 'BROWN';
               });
             }
@@ -163,7 +163,7 @@
 
                 function times100(intArray) {
                   var times = [];
-                  intArray.forEach((i) => {
+                  intArray.forEach(i => {
                     times.push(i * 100);
                   });
                   return times;
@@ -179,7 +179,7 @@
             // times100([1,2,3]) => [100, 200, 300]
 
             function times100(intArray) {
-              return intArray.<mark style="font-size: 1.2em;">map</mark>((i) => {
+              return intArray.<mark style="font-size: 1.2em;">map</mark>(i => {
                 return i * 100;
               }
             }
@@ -197,7 +197,7 @@
               // Start with array of puppies => array of ints => int
 
               function totalBonesBuried(puppiesArray) {
-                return puppiesArray.map((puppy) => {
+                return puppiesArray.map(puppy => {
                   return puppy.bonesBuried;
                 }).reduce((total, bonesBuried) => {
                   return total + bonesBuried;
@@ -230,7 +230,7 @@
           Array => Array (equal or smaller size)
           <pre><code class="hljs" data-noescape>
           function findBrownHair(puppiesArray) {
-            return puppiesArray.<mark style="font-size: 1.2em;">filter</mark>((puppy) => {
+            return puppiesArray.<mark style="font-size: 1.2em;">filter</mark>(puppy => {
               return puppy.hairColor === 'BROWN';
             });
           }
@@ -249,9 +249,9 @@
           <div class="fragment">
             <pre><code class="hljs" data-noescape>
             function bonesBuriedForBrownHair(puppiesArray) {
-              return puppiesArray.filter((puppy) => {
+              return puppiesArray.filter(puppy => {
                 return puppy.hairColor === 'BROWN';
-              }).map((brownHairPuppy) => {
+              }).map(brownHairPuppy => {
                 return brownHairPuppy.bonesBuried;
               }).reduce((total, bonesBuried) => {
                 return total + bonesBuried;
