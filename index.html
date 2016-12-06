@@ -121,8 +121,8 @@
         <section>
           Concatenate an array of words to build a message
           <div class="fragment">
-            <pre><code class="hljs">
-              // createMessage(['In', 'From', 'The', 'Sea']) => 'InFromTheSea'
+            <pre><code class="hljs javascript">
+              // createMessage(['How', 'Now', 'Dark', 'Cloud']) => 'HowNowDarkCloud'
 
               function createMessage(words) {
                 var message = "";
@@ -138,8 +138,8 @@
           Reduce/Fold
           <br>
           Array => Single value
-          <pre><code class="hljs" data-noescape>
-            // createMessage(['In', 'From', 'The', 'Sea']) => 'InFromTheSea'
+          <pre><code class="hljs javascript" data-noescape>
+            // createMessage(['How', 'Now', 'Dark', 'Cloud']) => 'HowNowDarkCloud'
 
             function createMessage(words) {
               return words.<mark style="font-size: 1.2em;">reduce</mark>((message, word) => {
@@ -147,7 +147,7 @@
               }, '');
             }
           </code></pre>
-          <pre><code class="hljs" data-noescape>
+          <pre><code class="hljs java" data-noescape>
             public static String createMessage(String[] words) {
               return Arrays.stream(words).<mark style="font-size: 1.2em;">reduce</mark>(
                 "",
@@ -193,7 +193,7 @@
         <section>
           Total number of bones buried for all dogs
           <div class="fragment">
-          <pre><code class="hljs" data-noescape>
+          <pre><code class="hljs javascript" data-noescape>
               // Start with array of puppies => array of ints => int
 
               function totalBonesBuried(puppiesArray) {
@@ -235,7 +235,7 @@
             });
           }
         </code></pre>
-          <pre><code class="hljs" data-noescape>
+          <pre><code class="hljs java" data-noescape>
           public static Puppy[] findBrownHair(Puppy[] puppiesArray) {
             return Arrays.stream(puppiesArray)
               .<mark style="font-size: 1.2em;">filter</mark>(puppy -> puppy.getHairColor().equals("BROWN"))
@@ -249,10 +249,13 @@
           <div class="fragment">
             <pre><code class="hljs" data-noescape>
             function bonesBuriedForBrownHair(puppiesArray) {
+
               return puppiesArray.filter(puppy => {
                 return puppy.hairColor === 'BROWN';
+
               }).map(brownHairPuppy => {
                 return brownHairPuppy.bonesBuried;
+
               }).reduce((total, bonesBuried) => {
                 return total + bonesBuried;
               });
