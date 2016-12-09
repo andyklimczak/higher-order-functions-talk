@@ -30,7 +30,7 @@
             <div class="fragment">
               <pre><code class="hljs" data-noescape>
                 function anyBrownHair(puppiesArray) {
-                  for(i = 0; i &lt; puppiesArray.length; i++) {
+                  for(let i = 0; i &lt; puppiesArray.length; i++) {
                     if(puppiesArray[i].hairColor === 'BROWN') {
                       return true;
                     }
@@ -42,7 +42,7 @@
             <div class="fragment">
               <pre><code class="hljs">
                 function anyBrownHair(puppiesArray) {
-                  for(var puppy: puppiesArray) {
+                  for(let puppy in puppiesArray) {
                     if(puppy.hairColor === 'BROWN') {
                       return true;
                     }
@@ -90,7 +90,7 @@
           <div class="fragment">
             <pre><code>
               function allBrownHair(puppiesArray) {
-                for(var puppy : puppiesArray) {
+                puppiesArray.forEach(puppy => {
                   if(puppy.hairColor !== 'BROWN') {
                     return false;
                   }
@@ -125,9 +125,9 @@
               // createMessage(['How', 'Now', 'Dark', 'Cloud']) => 'HowNowDarkCloud'
 
               function createMessage(words) {
-                var message = "";
-                for(var word : words) {
-                  message += word;
+                let message = "";
+                for(let i = 0; i &lt; words.length; i++) {
+                  message += message[i];
                 }
                 return message;
               }
@@ -162,7 +162,7 @@
                 // times100([1,2,3]) => [100, 200, 300]
 
                 function times100(intArray) {
-                  var times = [];
+                  let times = [];
                   intArray.forEach(i => {
                     times.push(i * 100);
                   });
@@ -211,11 +211,11 @@
           <div class="fragment">
             <pre><code class="hljs" data-noescape>
               function findBrownHair(puppiesArray) {
-                var brownHairPuppies = [];
+                let brownHairPuppies = [];
 
-                for(var puppy : puppiesArray) {
-                  if(puppy.hairColor === 'BROWN') {
-                    brownHairPuppies.push(puppy);
+                for(let i = 0; i &lt; puppiesArray.length; i++) {
+                  if(puppiesArray[i].hairColor === 'BROWN') {
+                    brownHairPuppies.push(puppiesArray[i]);
                   }
                 }
 
