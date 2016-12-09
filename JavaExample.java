@@ -17,7 +17,7 @@ public class JavaExample {
         System.out.println("All puppies with brown hair? " + allBrownHair(puppiesArray));
 
         // reduce
-        String words[] = {"In", "From", "The", "Sea"};
+        String words[] = {"How", "Now", "Dark", "Cloud"};
         System.out.println("Message: " + createMessage(words));
 
         // map
