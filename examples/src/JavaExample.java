@@ -8,7 +8,8 @@ public class JavaExample {
         Puppy p3 = new Puppy("Spot", "BROWN", 3);
         Puppy p4 = new Puppy("Stella", "WHITE", 10);
         Puppy p5 = new Puppy("Rover", "BROWN", 8);
-        Puppy puppiesArray[] = {p1, p2, p3, p4, p5};
+
+        Puppy[] puppiesArray = {p1, p2, p3, p4, p5};
 
         // any/some
         System.out.println("Any puppies with brown hair? " + anyBrownHair(puppiesArray));
@@ -17,11 +18,11 @@ public class JavaExample {
         System.out.println("All puppies with brown hair? " + allBrownHair(puppiesArray));
 
         // reduce
-        String words[] = {"How", "Now", "Dark", "Cloud"};
+        String[] words = {"How", "Now", "Dark", "Cloud"};
         System.out.println("Message: " + createMessage(words));
 
         // map
-        int intArray[] = {1,2,3};
+        int[] intArray = {1,2,3};
         System.out.println("Times 100: " + Arrays.toString(times100(intArray)));
 
         // filter
@@ -73,6 +74,6 @@ class Puppy {
     }
 
     public String toString() {
-        return name;
+        return getName();
     }
 }
