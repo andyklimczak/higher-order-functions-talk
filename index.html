@@ -105,14 +105,14 @@
           <br>
           Array => Boolean
           <pre><code class="hljs" data-noescape>
-            function anyBrownHair(puppiesArray) {
+            function allBrownHair(puppiesArray) {
               return puppiesArray.<mark style="font-size: 1.2em;">every</mark>(puppy => {
                 return puppy.hairColor === 'BROWN';
               });
             }
           </code></pre>
           <pre><code class="hljs" data-noescape>
-            public static boolean anyBrownHair(Puppy[] puppyArray) {
+            public static boolean allBrownHair(Puppy[] puppyArray) {
               return Arrays.stream(puppiesArray)
                 .<mark style="font-size: 1.2em;">allMatch</mark>(puppy -> puppy.getHairColor().equals("BROWN"));
             }
