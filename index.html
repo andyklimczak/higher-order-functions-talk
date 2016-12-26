@@ -28,7 +28,7 @@
           <section>
             Given an array of Puppies, do any of them have brown hair?
             <div class="fragment">
-              <pre><code class="hljs" data-noescape>
+              <pre><code class="hljs javascript" data-noescape>
                 function anyBrownHair(puppiesArray) {
                   for(let i = 0; i &lt; puppiesArray.length; i++) {
                     if(puppiesArray[i].hairColor === 'BROWN') {
@@ -40,7 +40,7 @@
               </code></pre>
             </div>
             <div class="fragment">
-              <pre><code class="hljs">
+              <pre><code class="hljs javascript">
                 function anyBrownHair(puppiesArray) {
                   for(let puppy in puppiesArray) {
                     if(puppy.hairColor === 'BROWN') {
@@ -52,7 +52,7 @@
               </code></pre>
             </div>
             <div class="fragment">
-              <pre><code class="hljs">
+              <pre><code class="hljs javascript">
                 function anyBrownHair(puppiesArray) {
                   puppiesArray.forEach(puppy => {
                     if(puppy.hairColor === 'BROWN') {
@@ -69,14 +69,14 @@
           Any/Some
           <br>
           Array => Boolean
-          <pre><code class="hljs" data-noescape>
+          <pre><code class="hljs javascript" data-noescape>
             function anyBrownHair(puppiesArray) {
               return puppiesArray.<mark style="font-size: 1.2em;">some</mark>(puppy => {
                 return puppy.hairColor === 'BROWN';
               });
             }
           </code></pre>
-          <pre><code class="hljs" data-noescape>
+          <pre><code class="hljs java" data-noescape>
             public static boolean anyBrownHair(Puppy[] puppiesArray) {
               return Arrays.stream(puppiesArray)
                 .<mark style="font-size: 1.2em;">anyMatch</mark>(puppy -> puppy.getHairColor().equals("BROWN"));
@@ -88,7 +88,7 @@
             Given an array of Puppies, do they all have brown hair?
           </div>
           <div class="fragment">
-            <pre><code>
+            <pre><code class="hljs javascript" data-noescape>
               function allBrownHair(puppiesArray) {
                 puppiesArray.forEach(puppy => {
                   if(puppy.hairColor !== 'BROWN') {
@@ -104,14 +104,14 @@
           Every/All
           <br>
           Array => Boolean
-          <pre><code class="hljs" data-noescape>
+          <pre><code class="hljs javascript" data-noescape>
             function allBrownHair(puppiesArray) {
               return puppiesArray.<mark style="font-size: 1.2em;">every</mark>(puppy => {
                 return puppy.hairColor === 'BROWN';
               });
             }
           </code></pre>
-          <pre><code class="hljs" data-noescape>
+          <pre><code class="hljs java" data-noescape>
             public static boolean allBrownHair(Puppy[] puppyArray) {
               return Arrays.stream(puppiesArray)
                 .<mark style="font-size: 1.2em;">allMatch</mark>(puppy -> puppy.getHairColor().equals("BROWN"));
@@ -158,7 +158,7 @@
         <section>
           Given int array, return array where each number is multiplied by 100
           <div class="fragment">
-            <pre><code class="hljs">
+            <pre><code class="hljs javascript">
                 // times100([1,2,3]) => [100, 200, 300]
 
                 function times100(intArray) {
@@ -175,16 +175,14 @@
           Map
           <br>
           Array => Array (exact equal size)
-          <pre><code class="hljs" data-noescape>
+          <pre><code class="hljs javascript" data-noescape>
             // times100([1,2,3]) => [100, 200, 300]
 
             function times100(intArray) {
-              return intArray.<mark style="font-size: 1.2em;">map</mark>(i => {
-                return i * 100;
-              }
+              return intArray.<mark style="font-size: 1.2em;">map</mark>(i => i * 100);
             }
           </code></pre>
-          <pre><code class="hljs" data-noescape>
+          <pre><code class="hljs java" data-noescape>
           public static int[] times100(int[] intArray) {
             return Arrays.stream(intArray).<mark style="font-size: 1.2em;">map</mark>(i -> i * 100).toArray();
           }
@@ -209,7 +207,7 @@
         <section>
           Return an array of only brown hair puppies
           <div class="fragment">
-            <pre><code class="hljs" data-noescape>
+            <pre><code class="hljs javascript" data-noescape>
               function findBrownHair(puppiesArray) {
                 let brownHairPuppies = [];
 
@@ -228,7 +226,7 @@
           Filter
           <br>
           Array => Array (equal or smaller size)
-          <pre><code class="hljs" data-noescape>
+          <pre><code class="hljs javascript" data-noescape>
           function findBrownHair(puppiesArray) {
             return puppiesArray.<mark style="font-size: 1.2em;">filter</mark>(puppy => {
               return puppy.hairColor === 'BROWN';
@@ -247,7 +245,7 @@
           BONUS: Sum number of bones buried for all brown hair dogs
           <br>
           <div class="fragment">
-            <pre><code class="hljs" data-noescape>
+            <pre><code class="hljs javascript" data-noescape>
             function bonesBuriedForBrownHair(puppiesArray) {
 
               return puppiesArray.filter(puppy => {
