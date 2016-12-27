@@ -119,17 +119,17 @@
           </code></pre>
         </section>
         <section>
-          Concatenate an array of words to build a message
+          Sum an array of numbers
           <div class="fragment">
             <pre><code class="hljs javascript">
-              // createMessage(['How', 'Now', 'Dark', 'Cloud']) => 'HowNowDarkCloud'
+              // sumArray([10, 9, 27, 2031]) => 2077
 
-              function createMessage(words) {
-                let message = "";
-                for(let i = 0; i &lt; words.length; i++) {
-                  message += words[i];
+              function sumArray(numbers) {
+                let sum = 0
+                for(let i = 0; i &lt; numbers.length; i++) {
+                  sum += numbers[i];
                 }
-                return message;
+                return sum;
               }
             </code></pre>
           </div>
@@ -139,19 +139,18 @@
           <br>
           Array => Single value
           <pre><code class="hljs javascript" data-noescape>
-            // createMessage(['How', 'Now', 'Dark', 'Cloud']) => 'HowNowDarkCloud'
+            // sumArray([10, 9, 27, 2031]) => 2077
 
-            function createMessage(words) {
-              return words.<mark style="font-size: 1.2em;">reduce</mark>((message, word) => {
-                return message + word;
-              }, '');
+            function sumArray(numbers) {
+              return numbers.<mark style="font-size: 1.2em;">reduce</mark>((sum, number) => {
+                return sum + number;
+              }, 0);
             }
           </code></pre>
           <pre><code class="hljs java" data-noescape>
-            public static String createMessage(String[] words) {
-              return Arrays.stream(words).<mark style="font-size: 1.2em;">reduce</mark>(
-                "",
-                (message, word) -> message + word);
+            public static int sumArray(int[] numbers) {
+              return Arrays.stream(numbers).<mark style="font-size: 1.2em;">reduce</mark>(
+                0, (sum, number) -> sum + number);
             }
           </code></pre>
         </section>

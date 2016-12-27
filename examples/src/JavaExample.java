@@ -18,8 +18,8 @@ public class JavaExample {
         System.out.println("All puppies with brown hair? " + allBrownHair(puppiesArray));
 
         // reduce
-        String[] words = {"How", "Now", "Dark", "Cloud"};
-        System.out.println("Message: " + createMessage(words));
+        int[] numbers = {10, 9, 27, 2031};
+        System.out.println("Sum: " + sumArray(numbers));
 
         // map
         int[] intArray = {1,2,3};
@@ -37,8 +37,8 @@ public class JavaExample {
         return Arrays.stream(puppiesArray).allMatch(puppy -> puppy.getHairColor().equals("BROWN"));
     }
 
-    static String createMessage(String[] words) {
-        return Arrays.stream(words).reduce("", (message, word) -> message + word);
+    static int sumArray(int[] numbers) {
+        return Arrays.stream(numbers).reduce(0, (sum, number) -> sum + number);
     }
 
     static int[] times100(int[] intArray) {
