@@ -39,30 +39,6 @@
                 }
               </code></pre>
             </div>
-            <div class="fragment">
-              <pre><code class="hljs javascript">
-                function anyBrownHair(puppiesArray) {
-                  for(let puppy in puppiesArray) {
-                    if(puppy.hairColor === 'BROWN') {
-                      return true;
-                    }
-                  }
-                  return false;
-                }
-              </code></pre>
-            </div>
-            <div class="fragment">
-              <pre><code class="hljs javascript">
-                function anyBrownHair(puppiesArray) {
-                  puppiesArray.forEach(puppy => {
-                    if(puppy.hairColor === 'BROWN') {
-                      return true;
-                    }
-                  });
-                  return false;
-                }
-              </code></pre>
-            </div>
           </section>
         </section>
         <section>
@@ -90,8 +66,8 @@
           <div class="fragment">
             <pre><code class="hljs javascript" data-noescape>
               function allBrownHair(puppiesArray) {
-                puppiesArray.forEach(puppy => {
-                  if(puppy.hairColor !== 'BROWN') {
+                for(let i = 0; i &lt; puppiesArray.length; i++) {
+                  if(puppiesArray[i].hairColor !== 'BROWN') {
                     return false;
                   }
                 }
